@@ -19,18 +19,18 @@ Adds whitespace to the resulting html to make it easier for a human to read usin
 
 ###### self: [boolean]
 
-Use a self namespace to hold the locals (false by default)
+Use a self namespace to hold the locals (false by default).
 
 ###### debug: [boolean]
 
-If set to true, the tokens and function body is logged to stdout
+If set to true, the tokens and function body is logged to stdout.
 
 ###### compileDebug: [boolean]
 
 If set to true, the function source will be included in the compiled template for better error messages (sometimes useful in development). It is enabled by default unless used with express in production mode.
 
 ## Usage
-For general usage and build process integration see [PostHTML Docs](https://github.com/posthtml/posthtml#usage)
+For general usage and build process integration see [PostHTML Docs](https://github.com/posthtml/posthtml#usage).
 
 ### Example using Node API
 #### Default
@@ -43,7 +43,7 @@ const posthtml = require('posthtml')
 
 const jade = require('posthtml-jade')()
 
-let file = fs.readFileSync('./index.html', 'utf-8')
+let file = fs.readFileSync('./index.html', 'utf8')
 
 posthtml([ jade ])
   .process(file)
