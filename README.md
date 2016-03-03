@@ -4,7 +4,7 @@
 
 Wrapper for PostHTML providing all functionality of the Jade templating  language or to use as shorthand syntax for your html.
 
-If input is not a valid jade string but valid html the plugin just returns the html. This means you can use both jade and html files in your build process(e.g [gulp-posthtml](https://github.com/posthtml/posthtml), [grunt-posthtml](https://github.com/TCotton/grunt-posthtml), [posthtml-loader](https://github.com/michael-ciniawsky/posthtml-loader))
+If input is not a valid jade string but valid html the plugin just returns the html. This means you can use mix jade and html files in your build process (e.g [gulp-posthtml](https://github.com/posthtml/posthtml), [grunt-posthtml](https://github.com/TCotton/grunt-posthtml), [posthtml-loader](https://github.com/michael-ciniawsky/posthtml-loader))
 
 ## Install
 ```
@@ -54,7 +54,7 @@ posthtml([ jade ])
   .process(file)
   .then(result => console.log(result.html))
 ```
-##### Input
+#### Input
 ```html
 doctype html
 html
@@ -64,7 +64,7 @@ html
   body
     h1(id="title") Jade for PostHTML
 ```
-##### Output
+#### Output
 ```html
 <!DOCTYPE html>
 <html>
