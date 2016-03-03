@@ -4,7 +4,7 @@ const fs = require('fs')
 
 const posthtml = require('posthtml')
 
-const jade = require('../index')()
+const jade = require('../index')({debug: true, pretty: false})
 
 let html = fs.readFileSync('./index.jade', 'utf8')
 
