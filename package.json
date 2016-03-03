@@ -1,6 +1,6 @@
 {
   "name": "posthtml-jade",
-  "version": "0.0.1",
+  "version": "0.8.0",
   "description": "Jade for PostHTML",
   "engines": {
     "node": ">=4"
