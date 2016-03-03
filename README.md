@@ -15,6 +15,10 @@ If input is not a valid jade string but valid html the plugin just returns the h
 
 ## Options
 
+##### filename: [string]
+
+Used in exceptions, and required for relative includes and extends
+
 ##### doctype: [string]
 
 If the doctype is not specified as part of the template, you can specify it here. It is sometimes useful to get self-closing tags and remove mirroring of boolean attributes.

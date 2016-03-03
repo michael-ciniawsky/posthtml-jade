@@ -10,6 +10,7 @@ let parse = require('posthtml-parser')
 
 exports = module.exports = function (options) {
   options = options || {}
+  options.filename = options.filename || './index.jade'
   options.pretty = options.pretty || true
   options.debug = options.debug || false
   options.compileDebug = options.compileDebug || true
@@ -20,10 +21,12 @@ exports = module.exports = function (options) {
   return function PostHTMLJade (tree) {
     if (tree.length === 1) {
       if (Object.getOwnPropertyNames(locals).length > 0) {
+        console.log(compile(tree, options))
         let template = compile(tree, options)
-        tree = parse(template({test: 'Hello!'}))
+        tree = parse(template())
       }
-      tree = parse(render(tree, options))
+      let html = (render(tree, options))
+      tree = parse(html)
       return tree
     }
     return tree
