@@ -1,11 +1,16 @@
+<img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
+
 # Jade for PostHTML
 
-Wrapper for PostHTML providing all functionality of the Jade templating  language or to use as shorthand syntax for your HTML.
+Wrapper for PostHTML providing all functionality of the Jade templating  language or to use as shorthand syntax for your html.
+
+If input is not a valid jade string but valid html the plugin just returns the html. This means you can use both jade and html files in your build process(e.g [gulp-posthtml](https://github.com/posthtml/posthtml), [grunt-posthtml](https://github.com/TCotton/grunt-posthtml), [posthtml-loader](https://github.com/michael-ciniawsky/posthtml-loader))
 
 ## Install
-```bash
+```
 (sudo) npm i -D posthtml-jade
 ```
+[![npm](https://badge.fury.io/js/posthtml-jade.svg)](https://badge.fury.io/js/posthtml-jade) [![dependencies](https://david-dm.org/michael-ciniawsky/posthtml-jade.svg)](https://david-dm.org/michael-ciniawsky/posthtml-jade)
 
 ## Options
 

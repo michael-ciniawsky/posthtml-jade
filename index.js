@@ -11,6 +11,8 @@ let parse = require('posthtml-parser')
 exports = module.exports = function (options) {
   options = options || {}
   options.pretty = options.pretty || true
+  options.debug = options.debug || false
+  options.compileDebug = options.compileDebug || true
   options.locals = options.locals || {}
 
   let locals = options.locals
