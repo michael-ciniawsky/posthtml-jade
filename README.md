@@ -10,7 +10,8 @@
 PostHTML ≥ 0.9.0 allow users to override the parser used for a specific source, through `options` parameter of the `.process` method. This module offers Pug support for PostHTML through the custom parser API.
 
 ## Install
-```
+
+```bash
 npm i -D posthtml-pug
 ```
 
@@ -38,7 +39,9 @@ posthtml()
   .process(file, { parser: pug({ locals: locals }) })
   .then(({ html }) => console.log(html))
 ```
+
 ### Input
+
 ```html
 doctype html
 html
@@ -49,7 +52,9 @@ html
     h1#title Pug for PostHTML
     p= greeting
 ```
+
 ### Output
+
 ```html
 <!DOCTYPE html>
 <html>
