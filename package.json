@@ -24,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https:/github.com/michael-ciniawsky/posthtml-jade"
+    "url": "https:/github.com/posthtml/posthtml-jade"
   },
   "bugs": {
-    "url": "https://github.com/michael-ciniawsky/posthtml-jade/issues"
+    "url": "https://github.com/posthtml/posthtml-jade/issues"
   },
-  "homepage": "https://github.com/michael-ciniawsky/posthtml-jade#readme",
+  "homepage": "https://github.com/posthtml/posthtml-jade#readme",
   "license": "MIT"
 }
