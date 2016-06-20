@@ -7,6 +7,7 @@
 
 # Pug Parser for PostHTML <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
 
+<<<<<<< HEAD
 PostHTML ≥ 0.9.0 allow users to override the parser used for a specific source, through `options` parameter of the `.process` method. This module offers Pug support for PostHTML through the custom parser API.
 
 ## Install
