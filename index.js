@@ -1,34 +1,14 @@
-// ------------------------------------
-// #POSTHTML - JADE
-// ------------------------------------
-
 'use strict'
 
-let render = require('jade').render
-let compile = require('jade').compile
-let parse = require('posthtml-parser')
+const {compile} = require('jade')
+const parse = require('posthtml-parser')
 
-exports = module.exports = function (options) {
-  options = options || {}
-  options.filename = options.filename || './index.jade'
-  options.pretty = options.pretty || true
-  options.debug = options.debug || false
-  options.compileDebug = options.compileDebug || true
-  options.locals = options.locals || {}
-
-  let locals = options.locals
+module.exports = function (opts) {
+  opts = opts || {}
+  opts.pretty = opts.pretty || true
+  opts.locals = opts.locals || {}
 
   return function PostHTMLJade (tree) {
-    if (tree.length === 1) {
-      if (Object.getOwnPropertyNames(locals).length > 0) {
-        console.log(compile(tree, options))
-        let template = compile(tree, options)
-        tree = parse(template())
-      }
-      let html = (render(tree, options))
-      tree = parse(html)
-      return tree
-    }
-    return tree
+    return tree.length === 1 ? parse(compile(tree, opts)(opts.locals)) : tree
   }
 }
