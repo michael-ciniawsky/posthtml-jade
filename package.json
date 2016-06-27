@@ -10,7 +10,6 @@
     "jade": "^1.11.0",
     "posthtml-parser": "^0.1.1"
   },
-  "devDependencies": {},
   "keywords": [
     "HTML",
     "PostHTML",
