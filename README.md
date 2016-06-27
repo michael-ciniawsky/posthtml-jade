@@ -1,4 +1,4 @@
-[![npm](https://badge.fury.io/js/posthtml-jade.svg)](https://badge.fury.io/js/posthtml-jade) [![dependencies](https://david-dm.org/michael-ciniawsky/posthtml-jade.svg)](https://david-dm.org/michael-ciniawsky/posthtml-jade)
+[![npm](https://badge.fury.io/js/posthtml-jade.svg)](https://badge.fury.io/js/posthtml-jade) [![dependencies](https://david-dm.org/posthtml/posthtml-jade.svg)](https://david-dm.org/posthtml/posthtml-jade)
 
 <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
 
@@ -10,7 +10,7 @@ If input is not a valid jade string but valid html the plugin just returns the h
 
 ## Install
 ```
-(sudo) npm i -D posthtml-jade
+npm i posthtml-jade --save
 ```
 
 ## Options
@@ -48,16 +48,14 @@ For general usage and build process integration see [PostHTML Docs](https://gith
 'use strict'
 
 const fs = require('fs')
-
 const posthtml = require('posthtml')
-
 const jade = require('posthtml-jade')()
 
-let file = fs.readFileSync('./index.{jade|html}', 'utf8')
+const file = fs.readFileSync('./index.jade', 'utf8')
 
-posthtml([ jade ])
+posthtml([jade])
   .process(file)
-  .then(result => console.log(result.html))
+  .then((result) => console.log(result.html))
 ```
 #### Input
 ```html
