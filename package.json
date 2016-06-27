@@ -1,33 +1,44 @@
 {
   "name": "posthtml-jade",
-  "version": "0.8.2",
   "description": "Jade for PostHTML",
-  "engines": {
-    "node": ">=4"
-  },
-  "main": "index.js",
-  "dependencies": {
-    "jade": "^1.11.0",
-    "posthtml-parser": "^0.1.1"
-  },
-  "keywords": [
-    "HTML",
-    "PostHTML",
-    "PostHTML Plugin",
-    "Jade",
-    "Jade Syntax"
-  ],
+  "version": "0.8.2",
   "author": {
     "name": "Michael Ciniawky",
     "email": "michael.ciniawsky@gmail.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https:/github.com/posthtml/posthtml-jade"
+  "ava": {
+    "verbose": "true"
   },
   "bugs": {
     "url": "https://github.com/posthtml/posthtml-jade/issues"
   },
+  "dependencies": {
+    "jade": "^1.11.0",
+    "posthtml-parser": "^0.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "posthtml": "^0.8.7",
+    "standard": "^7.1.2"
+  },
+  "engines": {
+    "node": ">=4"
+  },
   "homepage": "https://github.com/posthtml/posthtml-jade#readme",
-  "license": "MIT"
+  "keywords": [
+    "HTML",
+    "Jade",
+    "Jade Syntax",
+    "PostHTML",
+    "PostHTML Plugin"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https:/github.com/posthtml/posthtml-jade"
+  },
+  "scripts": {
+    "test": "ava"
+  }
 }

@@ -1,17 +1,15 @@
-'use strict'
-
+const jade = require('..')
 const fs = require('fs')
-
 const posthtml = require('posthtml')
+const test = require('ava')
 
-const jade = require('../index')({filename: './index.jade'})
+test('proccesses a basic template', (t) => {
+  const src = fs.readFileSync('./index.jade', 'utf8')
+  const expected = fs.readFileSync('./expected.html', 'utf8')
 
-let html = fs.readFileSync('./index.jade', 'utf8')
-
-posthtml([ jade ])
-  .process(html)
-  .then(result => {
-    console.log(result.tree)
-    console.log(result.html)
-    fs.writeFileSync('./result.html', result.html, 'utf8')
-  })
+  return posthtml([jade({ filename: './index.jade' })])
+    .process(src)
+    .then((result) => {
+      t.is(result.html, expected)
+    })
+})
