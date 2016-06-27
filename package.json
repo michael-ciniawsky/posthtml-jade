@@ -39,6 +39,7 @@
     "url": "https:/github.com/posthtml/posthtml-jade"
   },
   "scripts": {
-    "test": "ava"
+    "test": "npm run lint && ava",
+    "lint": "standard --verbose | snazzy"
   }
 }
