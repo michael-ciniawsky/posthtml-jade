@@ -63,3 +63,33 @@ html
   </body>
 </html>
 ```
+
+## Caveats
+
+There are a few ways that this plugin doesn't behave exactly like compiling with jade normally, detailed below.
+
+### Raw HTML
+
+This plugin will not process jade if there is any normal html in the template alongside the jade content. For example:
+
+```jade
+p here's an <a href='#'>inline link</a> for you!
+```
+
+While this is valid jade, and will compile correctly when using jade directly, it will not work with this plugin, and will return uncompiled code, with no error. In order to get around this, make sure to use native jade constructs and local functions for situations in which you need html directly in your templates. For the example above, the fix would be:
+
+```jade
+p here's an #[a(href='#') inline link] for you!
+```
+
+If you are having an issue in which this plugin appears to not be compiling your jade code, make sure to look for raw html in your templates and convert or abstract it to a local!
+
+### JSON.stringify html from locals
+
+This is a very niche use case, but is a situation in which this plugin behaves differently, so is worth noting. If you `JSON.stringify` a string that includes raw html and inject this into your jade template, it will be incorrectly escaped. For example, this would not render as valid JSON:
+
+```jade
+!= JSON.stringify({ link: '<a href="#">test link</a>' })
+```
+
+While this could be fixed with a regex in order to fix the escaping issue, if you just pulled the contents of the file and ran them through `JSON.parse` you would get an error.
