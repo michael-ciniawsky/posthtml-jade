@@ -15,29 +15,10 @@ npm i posthtml-jade --save
 
 ## Options
 
-##### filename: [string]
+See [jade's API docs](http://jade-lang.com/api/) for a full description of the options that can be passed. Differences for this library:
 
-Used in exceptions, and required for relative includes and extends
-
-##### doctype: [string]
-
-If the doctype is not specified as part of the template, you can specify it here. It is sometimes useful to get self-closing tags and remove mirroring of boolean attributes.
-
-##### pretty: [boolean | string]
-
-Adds whitespace to the resulting html to make it easier for a human to read using '  ' as indentation. If a string is specified, that will be used as indentation instead (e.g. '\t').
-
-###### self: [boolean]
-
-Use a self namespace to hold the locals (false by default).
-
-###### debug: [boolean]
-
-If set to true, the tokens and function body is logged to stdout.
-
-###### compileDebug: [boolean]
-
-If set to true, the function source will be included in the compiled template for better error messages (sometimes useful in development). It is enabled by default unless used with express in production mode.
+- The `pretty` option defaults to `true`.
+- There is a `locals` option, which provides locals to your template.
 
 ## Usage
 For general usage and build process integration see [PostHTML Docs](https://github.com/posthtml/posthtml#usage).
@@ -49,11 +30,11 @@ For general usage and build process integration see [PostHTML Docs](https://gith
 
 const fs = require('fs')
 const posthtml = require('posthtml')
-const jade = require('posthtml-jade')()
+const jade = require('posthtml-jade')
 
 const file = fs.readFileSync('./index.jade', 'utf8')
 
-posthtml([jade])
+posthtml([jade({ locals: { foo: 'bar' } })])
   .process(file)
   .then((result) => console.log(result.html))
 ```
@@ -65,7 +46,8 @@ html
     meta(charset="utf-8")
     title PostHTML Jade
   body
-    h1(id="title") Jade for PostHTML
+    h1#title Jade for PostHTML
+    p= foo
 ```
 #### Output
 ```html
@@ -77,6 +59,7 @@ html
   </head>
   <body>
     <h1 id="title">Jade for PostHTML</h1>
+    <p>bar</p>
   </body>
 </html>
 ```
