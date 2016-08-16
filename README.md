@@ -2,11 +2,9 @@
 
 <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
 
-# Jade for PostHTML
+# Jade Parser for PostHTML
 
-Wrapper for PostHTML providing all functionality of the Jade templating  language or to use as shorthand syntax for your html.
-
-If input is not a valid jade string but valid html the plugin just returns the html. This means you can use mix jade and html files in your build process (e.g [gulp-posthtml](https://github.com/posthtml/posthtml), [grunt-posthtml](https://github.com/TCotton/grunt-posthtml), [posthtml-loader](https://github.com/michael-ciniawsky/posthtml-loader))
+PostHTML ≥ 0.9.0 allow users to override the parser used for a specific source, through `options` parameter of the `.process` method. This module offers Jade support for PostHTML through the custom parser API.
 
 ## Install
 ```
@@ -34,9 +32,13 @@ const jade = require('posthtml-jade')
 
 const file = fs.readFileSync('./index.jade', 'utf8')
 
-posthtml([jade({ locals: { foo: 'bar' } })])
-  .process(file)
-  .then((result) => console.log(result.html))
+posthtml()
+  .process(file, {
+    parser: jade({
+      locals: { foo: 'bar' }
+    })
+  })
+  .then(({html}) => console.log(html))
 ```
 #### Input
 ```html
@@ -63,33 +65,3 @@ html
   </body>
 </html>
 ```
-
-## Caveats
-
-There are a few ways that this plugin doesn't behave exactly like compiling with jade normally, detailed below.
-
-### Raw HTML
-
-This plugin will not process jade if there is any normal html in the template alongside the jade content. For example:
-
-```jade
-p here's an <a href='#'>inline link</a> for you!
-```
-
-While this is valid jade, and will compile correctly when using jade directly, it will not work with this plugin, and will return uncompiled code, with no error. In order to get around this, make sure to use native jade constructs and local functions for situations in which you need html directly in your templates. For the example above, the fix would be:
-
-```jade
-p here's an #[a(href='#') inline link] for you!
-```
-
-If you are having an issue in which this plugin appears to not be compiling your jade code, make sure to look for raw html in your templates and convert or abstract it to a local!
-
-### JSON.stringify html from locals
-
-This is a very niche use case, but is a situation in which this plugin behaves differently, so is worth noting. If you `JSON.stringify` a string that includes raw html and inject this into your jade template, it will be incorrectly escaped. For example, this would not render as valid JSON:
-
-```jade
-!= JSON.stringify({ link: '<a href="#">test link</a>' })
-```
-
-While this could be fixed with a regex in order to fix the escaping issue, if you just pulled the contents of the file and ran them through `JSON.parse` you would get an error.
