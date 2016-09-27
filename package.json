@@ -1,47 +1,64 @@
 {
-  "name": "posthtml-jade",
-  "description": "Jade for PostHTML",
-  "version": "0.8.2",
-  "author": {
-    "name": "Michael Ciniawky",
-    "email": "michael.ciniawsky@gmail.com"
+  "name": "posthtml-pug",
+  "description": "Pug for PostHTML",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4",
+    "npm": ">=3"
+  },
+  "dependencies": {
+    "posthtml-parser": "^0.2.0",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "nyc": "^8.3.0",
+    "posthtml": "^0.9.0",
+    "standard": "^8.2.0",
+    "standard-changelog": "0.0.1"
+  },
+  "scripts": {
+    "clean": "rm -rf .nyc_output coverage jsdoc-api",
+    "lint": "standard",
+    "pretest": "npm run clean && npm run lint",
+    "test": "nyc ava 'test/index.js'",
+    "logs": "standard-changelog > CHANGELOG.md",
+    "docs": "jsdoc2md index.js > INDEX.md",
+    "release:major": "mversion major",
+    "release:minor": "mversion minor",
+    "release:patch": "mversion patch"
   },
   "ava": {
     "verbose": "true"
   },
-  "bugs": {
-    "url": "https://github.com/posthtml/posthtml-jade/issues"
+  "nyc": {
+    "all": true,
+    "include": [
+      "index.js",
+      "test"
+    ],
+    "extension": [
+      ".js"
+    ]
   },
-  "dependencies": {
-    "isobject": "^2.1.0",
-    "jade": "^1.11.0",
-    "object-assign": "^4.1.0",
-    "posthtml-parser": "^0.2.0"
-  },
-  "devDependencies": {
-    "ava": "^0.15.2",
-    "posthtml": "^0.9.0",
-    "standard": "^7.1.2"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "homepage": "https://github.com/posthtml/posthtml-jade#readme",
   "keywords": [
-    "HTML",
-    "Jade",
-    "Jade Syntax",
-    "PostHTML",
-    "PostHTML Plugin"
+    "pug",
+    "html",
+    "posthtml",
+    "posthtmlparser"
   ],
-  "license": "MIT",
-  "main": "index.js",
+  "author": {
+    "name": "Michael Ciniawky",
+    "email": "michael.ciniawsky@gmail.com"
+  },
   "repository": {
     "type": "git",
-    "url": "https:/github.com/posthtml/posthtml-jade"
+    "url": "https://github.com/posthtml/posthtml-pug"
   },
-  "scripts": {
-    "test": "npm run lint && ava",
-    "lint": "standard --verbose | snazzy"
-  }
+  "bugs": {
+    "url": "https://github.com/posthtml/posthtml-pug/issues"
+  },
+  "homepage": "https://github.com/posthtml/posthtml-pug#readme",
+  "license": "MIT"
 }
