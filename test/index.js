@@ -1,20 +1,21 @@
-const jade = require('..')
 const fs = require('fs')
-const posthtml = require('posthtml')
 const test = require('ava')
 
-test('processes a basic template', t => {
-  const src = fs.readFileSync('./index.jade', 'utf8')
-  const expected = fs.readFileSync('./expected.html', 'utf8')
+const posthtml = require('posthtml')
+const pug = require('..')
+
+test('1 - Process basic template', (t) => {
+  const fixtures = fs.readFileSync('./fixtures/index.pug', 'utf8')
+  const expected = fs.readFileSync('./expect/index.html', 'utf8')
+
+  const options = {
+    parser: pug({
+      filename: './fixtures/index.pug',
+      locals: { test: 'PostHTML Pug' }
+    })
+  }
 
   return posthtml()
-    .process(src, {
-      parser: jade({
-        filename: './index.jade',
-        locals: { test: 'PostHTML Test' }
-      })
-    })
-    .then(result => {
-      t.is(result.html.trim(), expected.trim())
-    })
+    .process(fixtures, options)
+    .then((result) => t.is(result.html.trim(), expected.trim()))
 })
