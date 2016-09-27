@@ -5,5 +5,10 @@
 
 # NODEJS
 
-node_modules
+.nyc_output
+
 npm-debug.log
+
+coverage
+jsdoc-api
+node_modules
