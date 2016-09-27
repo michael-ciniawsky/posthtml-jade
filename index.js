@@ -1,30 +1,28 @@
-'use strict'
-
-const isObject = require('isobject')
-const objectAssign = require('object-assign')
-const {compile} = require('jade')
+const compile = require('pug').compile
 const parse = require('posthtml-parser')
 
-const defaultOptions = {
-  pretty: true,
-  locals: {}
-}
+/**
+ * @module posthtml-pug
+ * @version 1.0.0
+ * @author Michael Ciniawsky (@michael-ciniawsky)
+ *
+ * @desc Pug Parser for PostHTML
+ *
+ * @requires pug
+ * @requires posthtml-parser
+ *
+ * @method posthtmlPug
+ *
+ * @param  {String} pug     Pug Source
+ * @param  {Object} options Pug Options
+ *
+ * @return {Function} HTML
+ */
+module.exports = function posthtmlPug (options) {
+  options.pretty = options.pretty || true
+  options.locals = options.locals || {}
 
-function postHTMLJadeParser (jade, options) {
-  return parse(compile(jade, options)(options.locals))
-}
-
-function parserWrapper (jade, options) {
-  if (isObject(jade)) {
-    options = objectAssign({}, defaultOptions, jade)
-    return function (jade) {
-      return postHTMLJadeParser(jade, options)
-    }
+  return function (pug) {
+    return parse(compile(pug, options)(options.locals))
   }
-
-  options = objectAssign({}, defaultOptions, options)
-  return postHTMLJadeParser(jade, options)
 }
-
-module.exports = parserWrapper
-module.exports.defaultOptions = defaultOptions
