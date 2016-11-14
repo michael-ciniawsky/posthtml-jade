@@ -7,7 +7,7 @@
 [![chat][chat]][chat-badge]
 
 <div align="center">
-  <img width="200" height="200" title="Pug" src="https://cdn.rawgit.com/pugjs/pug-logo/eec436cee8fd9d1726d7839cbe99d1f694692c0c/SVG/pug-final-logo-_-colour-48.svg">
+  <img width="200" height="200" title="Pug" src="https://camo.githubusercontent.com/a43de8ca816e78b1c2666f7696f449b2eeddbeca/68747470733a2f2f63646e2e7261776769742e636f6d2f7075676a732f7075672d6c6f676f2f656563343336636565386664396431373236643738333963626539396431663639343639326330632f5356472f7075672d66696e616c2d6c6f676f2d5f2d636f6c6f75722d3132382e737667">
   <img width="220" height="200" title="PostHTML" hspace="20"     src="http://posthtml.github.io/posthtml/logo.svg">
   <h1>Pug</h1>
   <p>Parser for PostHTML</p>
@@ -39,9 +39,10 @@ posthtml()
 See the [Pug API](https://pugjs.org/api/reference.html) for a full description of the options that can be passed.
 By default the following options are set:
 
-**`pretty`:** `true`
-
-**`locals`:** `{}`
+|Name|Default|
+|:--:|:-----:|
+|**`pretty`**|`true`|
+|**`locals`**|`{}`|
 
 <h2 align="center">Example</h2>
 
@@ -56,6 +57,8 @@ html
     h1#title Pug for PostHTML
     p= greeting
 ```
+
+### <img width="80" height="80" src="https://worldvectorlogo.com/logos/nodejs-icon.svg">
 
 ```js
 import { readFileSync } from ('fs')
