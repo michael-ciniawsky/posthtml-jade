@@ -9,7 +9,7 @@
     "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.18.1",
     "coveralls": "^2.11.15",
     "jsdoc-to-markdown": "^2.0.0",
     "nyc": "^9.0.1",
