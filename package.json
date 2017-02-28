@@ -14,7 +14,7 @@
     "jsdoc-to-markdown": "^3.0.0",
     "nyc": "^10.1.2",
     "posthtml": "^0.9.1",
-    "standard": "^8.4.0",
+    "standard": "^9.0.0",
     "standard-changelog": "0.0.1"
   },
   "scripts": {
