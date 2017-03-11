@@ -15,7 +15,7 @@
     "nyc": "^10.1.2",
     "posthtml": "^0.9.1",
     "standard": "^9.0.0",
-    "standard-changelog": "0.0.1"
+    "standard-changelog": "1.0.0"
   },
   "scripts": {
     "lint": "standard",
