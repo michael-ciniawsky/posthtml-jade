@@ -47,7 +47,7 @@ By default the following options are set:
 <h2 align="center">Example</h2>
 
 **index.pug**
-```
+```pug
 doctype html
 html
   head
